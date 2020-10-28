@@ -1,0 +1,193 @@
+
+<div class="apartment-filter-form d-none">
+
+	<div class="filter-params-wrapper pt-4">
+
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Uy turi</h6>
+			<select class="form-control" id="apartment-house-type">
+				<option value="null">Hammasi</option>
+				{% for type in realty.apartment.type %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Xonalar soni</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-rooms-num-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-rooms-num-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param filter-param-lg">
+			<h6 class="text-b ml-2">Narx</h6>
+			<div class="d-flex">
+				<div class="col-4 px-1">
+      				<input type="number" id="apartment-price-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-5 px-1">
+      				<input type="number" id="apartment-price-to" class="form-control" placeholder="..gacha">
+				</div>
+				<div class="col-3 px-1">
+					<select class="form-control px-1" id="apartment-valute">
+						{% for type in valute %}
+							<option value="{{ type }}">{{ type }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Umumiy maydon</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-total-area-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-total-area-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Yashash maydoni</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-living-area-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-living-area-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Oshxona maydoni</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-kitchen-area-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-kitchen-area-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Qavati</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-floor-num-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-floor-num-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Uy qavatligi</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-total-floor-num-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-total-floor-num-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Qurilish turi</h6>
+			<select class="form-control" id="apartment-building-type">
+				<option value="null">Hammasi</option>
+				{% for type in realty.house.building_type %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Rejasi</h6>
+			<select class="form-control" id="apartment-plan">
+				<option value="null">Hammasi</option>
+				{% for type in realty.apartment.plan %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2 filter-text-sm">Uy qurilgan/topshiriladigan yil</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      			<input type="number" id="apartment-construction-year-from" class="form-control" placeholder="..dan" min="1960">
+				</div>
+				<div class="col-6 px-1">
+      			<input type="number" id="apartment-construction-year-to" class="form-control" placeholder="..gacha" max="2100">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Sanuzel</h6>
+			<select class="form-control" id="apartment-sanuzel">
+				<option value="null">Hammasi</option>
+				{% for type in realty.apartment.sanuzel %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Mebel bor</h6>
+			<select class="form-control" id="apartment-with-furniture">
+				<option value="null">Hammasi</option>
+				<option value="+">Ha</option>
+				<option value="-">Yo'q</option>
+			</select>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Shift balandligi</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-ceil-height-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="apartment-ceil-height-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Ta'miri</h6>
+			<select class="form-control" id="apartment-condition">
+				<option value="null">Hammasi</option>
+				{% for type in realty.apartment.condition %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Uyda bor</h6>
+			<select class="mdb-select md-form mt-0 bg-white rounded" id="apartment-in-house" multiple>
+			    <option value="" disabled selected>Tanlang</option>
+			    {% for type in realty.apartment.in_house %}
+			    	<option value="{{ type }}">{{ type }}</option>
+			    {% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">
+			<h6 class="text-b ml-2">Yaqinda joylashgan</h6>
+			<select class="mdb-select md-form mt-0 bg-white rounded" id="apartment-around-house" multiple>
+			    <option value="" disabled selected>Tanlang</option>
+			    {% for type in realty.apartment.around_house %}
+			    	<option value="{{ type }}">{{ type }}</option>
+			    {% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Sotuvchi</h6>
+			<select class="form-control" id="apartment-seller">
+				<option value="null">Hammasi</option>
+				{% for type in seller %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,163 @@
+
+<div class="realty-house-model d-none">
+
+<div class="wrapper p-3 rounded shadow-lg my-5 bg-white">
+	<h3 class="mt-2 ml-5">Narx</h3>		
+	<div class="d-flex mx-5 mt-4 product-price-wrapper">		
+		<div class="mr-2">
+			<input type="number" id="house-price" class="form-control" autocomplete="off" min='0'>
+		</div>
+		<select class="form-control valute-select house-valute-select">
+			{% for type in valute %}
+				<option value="{{ type }}">{{ type }}</option>
+			{% endfor %}			
+		</select>
+	</div>
+	<div class="md-form short-form mx-5 mb-4">
+		<input type="number" id="house-rooms-num" class="form-control" min="0" autocomplete="off">
+		<label for="house-rooms-num">Xonalar soni </label>
+	</div>	
+	<div class="md-form short-form mx-5 mb-4">
+		<input type="number" id="house-total-area" class="form-control" min="0" autocomplete="off">
+		<label for="house-total-area">Umumiy maydon (m<sup>3</sup> ) </label>
+	</div>	
+	<div class="md-form short-form mx-5">
+		<input type="number" id="house-living-area" class="form-control" min="0" autocomplete="off">
+		<label for="house-living-area">Yashash maydoni (m<sup>3</sup> ) </label>
+	</div>	
+	<div class="m-5 mr-0 location-btns-wrapper">
+		<h4 class="radio-btns-lead text-b">Joylashuvi</h4>
+		<div class="radio-btns-wrapper">
+			{% for location in realty.house.location %}
+				<div class="form-check">
+				    <input type="radio" class="form-check-input house-location" value="{{ location }}" name="house-location" id="location-{{ location }}">
+				    <label class="form-check-label" for="location-{{ location }}">{{ location }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="md-form short-form mx-5">
+		<input type="number" id="house-floor-num" class="form-control" min="0" autocomplete="off">
+		<label for="house-floor-num">Uy qavatliligi</label>
+	</div>	
+	<div class="md-form short-form mx-5">
+		<input type="number" id="house-ceil-height" class="form-control" min="0" autocomplete="off">
+		<label for="house-ceil-height">Shiftning balandligi (sm) </label>
+	</div>	
+	<div class="mx-5 mt-4">
+		<h4 class="radio-btns-lead text-b">Mebelli</h4>
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">		
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+		    	<input class="form-check-input house-with-furniture" type="radio" value="true" autocomplete="off">Ha
+		    </label>		
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+		    	<input class="form-check-input house-with-furniture" type="radio" value="false" autocomplete="off">Yo'q
+		    </label>		
+		</div>		
+	</div>
+	<div class="m-5 mr-0 location-btns-wrapper">
+		<h4 class="radio-btns-lead text-b">Uy holati</h4>
+		<div class="radio-btns-wrapper">
+			{% for condition in realty.house.condition %}
+				<div class="form-check">
+				    <input type="radio" class="form-check-input house-condition" value="{{ condition }}" name="house-condition" id="condition-{{ condition }}">
+				    <label class="form-check-label" for="condition-{{ condition }}">{{ condition }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<select class="mdb-select md-form mx-5" id="house-type" searchable="Qidiruv..">
+		<option value="!=!" disabled selected>Uy turi</option>
+		{% for type in realty.house.type %}
+			<option value="{{ type }}">{{ type }}</option>
+		{% endfor %}	
+	</select>	
+	<select class="mdb-select md-form mx-5" id="house-building-type" searchable="Qidiruv..">
+		<option value="!=!" disabled selected>Qurilish turi</option>
+		{% for type in realty.house.building_type %}
+			<option value="{{ type }}">{{ type }}</option>
+		{% endfor %}	
+	</select>
+</div>
+
+<div class="wrapper p-3 py-5 rounded shadow-lg my-5 bg-white">
+	<div class="mb-5 ml-5">
+		<h4 class="radio-btns-lead text-b">Suv ta'minoti</h4>
+		<div class="radio-btns-wrapper">
+			{% for water in realty.house.water %}
+				<div class="form-check">
+				    <input type="radio" class="form-check-input house-water" value="{{ water }}" name="house-water" id="water-{{ water }}">
+				    <label class="form-check-label" for="water-{{ water }}">{{ water }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="mx-5 mt-4">
+		<h4 class="radio-btns-lead text-b">Elektr ta'minoti</h4>		
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">	
+			{% for type in realty.house.electricity %}
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input house-electricity-support" type="radio" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>	
+			{% endfor %}
+		</div>		
+	</div>
+	<div class="m-5 mr-0">
+		<h4 class="radio-btns-lead text-b">Isitish</h4>
+		<div class="radio-btns-wrapper">
+			{% for heating in realty.house.heating %}
+				<div class="form-check">
+				    <input type="radio" class="form-check-input house-heating" value="{{ heating }}" name="house-heating" id="heating-{{ heating }}">
+				    <label class="form-check-label" for="heating-{{ heating }}">{{ heating }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="mx-5 mt-4">
+		<h4 class="radio-btns-lead text-b">Gaz</h4>		
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">	
+			{% for type in realty.house.gas %}
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input house-gas-support" type="radio" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>	
+			{% endfor %}
+		</div>		
+	</div>
+</div>
+
+<div class="wrapper p-3 py-5 rounded shadow-lg my-5 bg-white">
+	<div class="mb-5 ml-5">
+		<h4 class="radio-btns-lead text-b">Uyda / Uchastkada bor</h4>
+		<div class="radio-btns-wrapper in-house-container">
+			{% for type in realty.house.in_house %}
+				<div class="form-check">
+				    <input type="checkbox" class="form-check-input" value="{{ type }}" id="house-{{ type }}">
+				    <label class="form-check-label" for="house-{{ type }}">{{ type }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="m-5 mr-0">
+		<h4 class="radio-btns-lead text-b">Yaqinda joylashgan</h4>
+		<div class="radio-btns-wrapper around-house-container">
+			{% for type in realty.house.around_house %}
+				<div class="form-check">
+				    <input type="checkbox" class="form-check-input" value="{{ type }}" id="house-{{ type }}">
+				    <label class="form-check-label" for="house-{{ type }}">{{ type }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="mx-5 mt-4">
+		<h4 class="radio-btns-lead text-b">Jismoniy/yuridik shaxs:</h4>		
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">	
+			{% for type in seller %}
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input house-seller" type="radio" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>	
+			{% endfor %}
+		</div>		
+	</div>
+</div>
+
+</div>

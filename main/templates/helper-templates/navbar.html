@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark navbar-dark">
+    <div class="container py-2">
+        <a class="navbar-brand" href="{% url 'home' %}">OLX</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item my-account-nav-item">
+					<div class="dropdown">
+					  <button class="btn btn-info dropdown-toggle m-0 px-3 py-2" type="button" id="dropdownMenu1" data-toggle="dropdown"
+					    aria-haspopup="true" aria-expanded="false">Mening profilim</button>
+
+					  <div class="dropdown-menu dropdown-info">
+                        {% if request.user.is_authenticated %}                            
+                            <a class="dropdown-item" href="{% url 'user-ads' request.user.id %}">Mening E'lonlarim</a>
+                            <a class="dropdown-item saved-ads-btn">Saralangan E'lonlar</a>
+                            <a class="dropdown-item text-danger" href="{% url 'logout' %}">Chiqish</a>
+                        {% endif %}  
+					  </div>
+					</div>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="btn purple-gradient m-0 px-3 py-2" href="{% url 'create-ad' %}">E'lon berish</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% csrf_token %}

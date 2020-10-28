@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="form-dark">
+  	<div class="card card-image mx-auto my-5"
+	style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table7.jpg'); width: 26rem;">
+		<div class="text-white rgba-stylish-strong py-3 px-5 z-depth-4">
+
+			<form action="" method="POST">		
+				{% csrf_token %}
+			  	<div class="text-center">
+					<h3 class="white-text mb-5 mt-3"><strong>LOG</strong> 
+					<a class="green-text font-weight-bold"><strong>IN</strong></a></h3>
+			  	</div>
+
+				<div class="md-form mt-3 pb-1">
+					<label class="white-text" for="username">Username</label>
+					<input type="text" name="username" class="form-control white-text" id="username" maxlength="255" required>
+				</div>
+
+				<div class="md-form pb-3">
+					<label class="white-text" for="password">Your password</label>
+					<input type="password" name="password" class="form-control white-text" id="password" required>
+				</div>
+
+				<div class="text-center mb-5 col-md-12 px-4">
+				  	<button class="btn btn-success btn-block btn-rounded z-depth-1" type="submit">Login</button>
+				</div>	
+			</form>
+
+	        {% for message in messages %}
+	            <p class="text-danger">{{ message }}</p>
+	        {% endfor %}
+
+			<div class="col-md-12 mt-3">
+				<p class="font-small white-text d-flex justify-content-end">Accountingiz yo'qmi? 
+				<a href="{% url 'register' %}" class="green-text ml-1 font-weight-bold">Ro'yxatdan o'tish</a></p>
+			</div>
+
+		</div>
+  	</div>
+</section>
+
+{% endblock %}

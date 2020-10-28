@@ -1,0 +1,69 @@
+
+<div class="work-programming-model d-none">
+	<div class="wrapper p-3 pb-4 rounded shadow-lg my-5 bg-white">
+		<select class="mdb-select md-form short-form mx-5" id="programming-type" onchange="changeProgrammingAdType($(this))" searchable="Qidiruv..">
+			<option value="!=!" disabled selected>Taklif qilyapsiz / Izlayapsiz</option>
+			{% for type in work.programming.type %}
+				<option value="{{ type }}">{{ type }}</option>
+			{% endfor %}	
+		</select>
+		<h4 class="mt-2 ml-5">Narx</h3>		
+		<div class="btn-group btn-group-toggle mx-5 mt-2" data-toggle="buttons">
+			{% for type in payment_method %}
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn">
+			    	<input class="form-check-input payment-method" type="radio" id="programming-payment-method" onchange="changeMethod($(this))" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>		
+			{% endfor %}
+		</div>
+		<div class="d-flex mx-5 mt-4 short-form product-price-wrapper">
+			<div class="mr-2">
+				<input type="number" id="programming-price-from" class="form-control" placeholder="dan" autocomplete="off" min='0'>
+			</div>
+			<div class="mr-2">
+				<input type="number" id="programming-price-to" class="form-control" placeholder="gacha" autocomplete="off" min='0'>
+			</div>
+			<select class="form-control valute-select programming-valute-select">
+				{% for type in valute %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}			
+			</select>
+		</div>
+		<select class="mdb-select md-form short-form mx-5 mt-5" id="programming-time" searchable="Qidiruv..">
+			<option value="!=!" disabled selected>Doimiy / Vaqtinchalik bandlik</option>
+			{% for type in work.programming.time %}
+				<option value="{{ type }}">{{ type }}</option>
+			{% endfor %}	
+		</select>
+		<select class="mdb-select md-form short-form mx-5 mt-5" id="programming-employment" searchable="Qidiruv..">
+			<option value="!=!" disabled selected>Ish vaqti</option>
+			{% for type in work.programming.employment %}
+				<option value="{{ type }}">{{ type }}</option>
+			{% endfor %}
+		</select>
+		<div class="mx-5 pt-4">
+			<h4 class="radio-btns-lead text-b">Online ishlash imkoniyati bor</h4>
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">		
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input programming-is-online" type="radio" value="true" autocomplete="off">Ha
+			    </label>
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input programming-is-online" type="radio" value="false" autocomplete="off">Yo'q
+			    </label>
+			</div>
+		</div>
+		<div class="mx-5 pt-4 mt-4 short-form programming-resume-wrapper d-none">
+			<h4 class="radio-btns-lead text-b">Rezyume yoki portfolioga link</h4>
+			<div class="mr-2">
+				<input type="url" id="programming-resume-url" class="form-control" placeholder="https://" autocomplete="off" min='0'>
+			</div>
+		</div>
+		<p class="d-block mt-5 ml-5 mb-1">Jismoniy/yuridik shaxs:</p>
+		<div class="btn-group btn-group-toggle mx-5 mb-4" data-toggle="buttons">
+			{% for type in seller %}
+			    <label class="btn btn-mdb-color form-check-label ml-0 mr-4 radio-btn">
+			    	<input class="form-check-input" type="radio" id="programming-seller" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>
+			{% endfor %}
+		</div>
+	</div>
+</div>

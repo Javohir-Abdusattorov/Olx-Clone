@@ -1,0 +1,131 @@
+
+<div class="realty-apartment-model d-none">
+
+<div class="wrapper p-3 rounded shadow-lg py-5 bg-white">
+	<h3 class="mt-2 ml-5">Narx</h3>	
+	<div class="d-flex mx-5 mt-4 product-price-wrapper">		
+		<div class="mr-2">
+			<input type="number" id="apartment-price" class="form-control" autocomplete="off" min='0'>
+		</div>
+		<select class="form-control valute-select apartment-valute-select">
+			{% for type in valute %}
+				<option value="{{ type }}">{{ type }}</option>
+			{% endfor %}			
+		</select>
+	</div>
+	<div class="mx-5 py-4">
+		<h4 class="radio-btns-lead text-b">Turarjoy turi</h4>		
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">	
+			{% for type in realty.apartment.type %}
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input apartment-type" type="radio" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="md-form short-form mx-5 mb-4">
+		<input type="number" id="apartment-rooms-num" class="form-control" min="0" autocomplete="off">
+		<label for="apartment-rooms-num">Xonalar soni</label>
+	</div>	
+	<div class="md-form short-form mx-5 mb-4">
+		<input type="number" id="apartment-total-area" class="form-control" min="0" autocomplete="off">
+		<label for="apartment-total-area">Umumiy maydon (m<sup>3</sup> ) </label>
+	</div>	
+	<div class="md-form short-form mx-5">
+		<input type="number" id="apartment-living-area" class="form-control" min="0" autocomplete="off">
+		<label for="apartment-living-area">Yashash maydoni (m<sup>3</sup> ) </label>
+	</div>
+	<div class="md-form short-form mx-5">
+		<input type="number" id="apartment-kitchen-area" class="form-control" min="0" autocomplete="off">
+		<label for="apartment-kitchen-area">Oshxona maydoni (m<sup>3</sup> ) </label>
+	</div>
+	<div class="md-form short-form mx-5">
+		<input type="number" id="apartment-floor" class="form-control" min="0" autocomplete="off">
+		<label for="apartment-floor">Qavati</label>
+	</div>
+	<div class="md-form short-form short-form mx-5">
+		<input type="number" id="apartment-total-floor" class="form-control" min="0" autocomplete="off">
+		<label for="apartment-total-floor">Uy qavatliligi </label>
+	</div>	
+	<select class="mdb-select md-form short-form mx-5" id="apartment-building-type" searchable="Qidiruv..">
+		<option value="!=!" disabled selected>Qurilish turi</option>
+		{% for type in realty.house.building_type %}
+			<option value="{{ type }}">{{ type }}</option>
+		{% endfor %}	
+	</select>
+	<select class="mdb-select md-form short-form mx-5" id="apartment-plan" searchable="Qidiruv..">
+		<option value="!=!" disabled selected>Rejasi</option>
+		{% for type in realty.apartment.plan %}
+			<option value="{{ type }}">{{ type }}</option>
+		{% endfor %}
+	</select>
+	<div class="md-form short-form mx-5">
+		<input type="number" id="apartment-construction-year" class="form-control" min="1960" autocomplete="off">
+		<label for="apartment-construction-year">Uy qurilgan/topshiriladigan yil</label>
+	</div>	
+	<div class="mx-5 py-3">
+		<h4 class="radio-btns-lead text-b">Sanuzel</h4>
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">
+			{% for type in realty.apartment.sanuzel %}
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input apartment-sanuzel" type="radio" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>	
+			{% endfor %}
+		</div>
+	</div>
+	<div class="mx-5 py-3">
+		<h4 class="radio-btns-lead text-b">Mebelli</h4>
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">		
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+		    	<input class="form-check-input apartment-with-furniture" type="radio" value="true" autocomplete="off">Ha
+		    </label>
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+		    	<input class="form-check-input apartment-with-furniture" type="radio" value="false" autocomplete="off">Yo'q
+		    </label>
+		</div>
+	</div>
+	<div class="md-form short-form mx-5 pb-4">
+		<input type="number" id="apartment-ceil-height" class="form-control" min="0" autocomplete="off">
+		<label for="apartment-ceil-height">Shiftning balandligi (sm)</label>
+	</div>
+	<div class="mb-5 ml-5">
+		<h4 class="radio-btns-lead text-b">Uyda / Uchastkada bor</h4>
+		<div class="radio-btns-wrapper in-apartment-container">
+			{% for type in realty.apartment.in_house %}
+				<div class="form-check">
+				    <input type="checkbox" class="form-check-input" value="{{ type }}" id="apartment-{{ type }}">
+				    <label class="form-check-label" for="apartment-{{ type }}">{{ type }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="m-5 mr-0">
+		<h4 class="radio-btns-lead text-b">Yaqinda joylashgan</h4>
+		<div class="radio-btns-wrapper around-apartment-container">
+			{% for type in realty.apartment.around_house %}
+				<div class="form-check">
+				    <input type="checkbox" class="form-check-input" value="{{ type }}" id="apartment-{{ type }}">
+				    <label class="form-check-label" for="apartment-{{ type }}">{{ type }}</label>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<select class="mdb-select md-form short-form mx-5" id="apartment-condition" searchable="Qidiruv..">
+		<option value="!=!" disabled selected>Ta'miri</option>
+		{% for type in realty.house.condition %}
+			<option value="{{ type }}">{{ type }}</option>
+		{% endfor %}
+	</select>
+	<div class="mx-5 mt-4 py-3">
+		<h4 class="radio-btns-lead text-b">Jismoniy/yuridik shaxs:</h4>		
+		<div class="btn-group btn-group-toggle" data-toggle="buttons">	
+			{% for type in seller %}
+			    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn sm-radio-btn">
+			    	<input class="form-check-input apartment-seller" type="radio" value="{{ type }}" autocomplete="off">{{ type }}
+			    </label>	
+			{% endfor %}
+		</div>		
+	</div>
+
+</div>
+</div>

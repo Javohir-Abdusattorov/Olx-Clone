@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container ad-container">
+    <div class="row py-5 pb-0">
+        <div class="col-md-8">
+            <div class="wrapper bg-white p-3 mb-4">                
+                <img src="{{ product.image_url }}" alt="product-image">
+            </div>
+            <div class="wrapper p-4 bg-white mb-4 ad" data-product-id="{{ product.id }}">
+                <div class="lead d-flex justify-content-between">
+                    <div>                    
+                        <h2 class="text-b">{{ product.title }}</h2>
+                        {% if subproduct.payment_method == 'Narx' %}
+                            <h1 class="ad-price">{{ subproduct.price }} {{ subproduct.valute }}</h1>
+                        {% elif subproduct.payment_method == 'Ayirboshlash' %}
+                            <h1 class="ad-price">Ayirboshlash</h1>
+                        {% else %}
+                            <h1 class="ad-price">Hadya qilaman</h1>
+                        {% endif %}
+                    </div>
+                    <div class="buttons">                    
+                        <button class="btn p-0 text-muted add-to-saved-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="tags mt-5 d-flex">
+                    {% for tag in tags %}
+                        <div class="tag p-1 px-3 mx-2 mb-2"><p class="m-0 text-b">{{ tag.key }}: <span>{{ tag.value }}</span></p></div>
+                    {% endfor %}
+                    {% for tag in other_tags %}
+                        <div class="tag p-1 px-3 mx-2 mb-2 no-hover"><p class="m-0 text-b">
+                            {{ tag.name }}: 
+                            {% for option in tag.options %}
+                                <span> <a href="{{ option.link }}" class="mr-2 tag-link">{{ option.name }}</a> </span>
+                            {% endfor %}
+                        </p></div>                        
+                    {% endfor %}
+                </div>
+                <h3 class="text-b mt-5">Tavsif</h3>
+                <p class="text-b">{{ product.description }}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="wrapper p-4 bg-white">
+                <h6 class="text-wb mb-4">Foydalanuvchi</h6>
+                <div class="d-flex align-items-center">
+                    <img src="https://i.ibb.co/nc73n0C/default-headshot.jpg" alt="photo" class="account-photo">
+                    <div class="account-wrapper ml-3">
+                        <h3 class="text-wb mb-0">{{ product.user.username }}</h3>
+                        <p class="text-b text-truncate">{{ product.contact_email }}</p>
+                    </div>
+                </div>
+                <button class="btn peach-gradient btn-block m-0 mt-5">Muallifning barcha e'lonlari</button>
+                <button class="btn purple-gradient btn-block m-0 mt-3 phone-num-btn">{{ product.contact_phone }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

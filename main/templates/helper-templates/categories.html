@@ -1,0 +1,99 @@
+{% load static %}
+
+<div class="container-fluid py-4 bg-white">
+    <h2 class="text-center mb-5">Bosh toifalar</h2>
+    <div class="container">
+        <div class="row">
+            <div class="category" data-category-id="1" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #ffce32">
+                    <img src="{% static 'images/category-1.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Bolalar dunyosi</h6>
+            </div>
+            <div class="category" data-category-id="2" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #3a77ff">
+                    <img src="{% static 'images/category-2.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Ko'chmas mulk</h6>
+            </div>
+            <div class="category" data-category-id="3" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #23e5db">
+                    <img src="{% static 'images/category-3.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Transport</h6>
+            </div>
+            <div class="category" data-category-id="4" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #ff5636">
+                    <img src="{% static 'images/category-4.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Ish</h6>
+            </div>
+            <div class="category" data-category-id="5" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #fff6d9">
+                    <img src="{% static 'images/category-5.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Hayvonlar</h6>
+            </div>
+            <div class="category" data-category-id="6" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #ceddff">
+                    <img src="{% static 'images/category-6.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Uy va bog'</h6>
+            </div>
+            <div class="category" data-category-id="7" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #c8f8f6">
+                    <img src="{% static 'images/category-7.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Elektr jihozlari</h6>
+            </div>
+            <div class="category" data-category-id="8" onclick="openSubCategories($(this), true)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #ffd6c9">
+                    <img src="{% static 'images/category-8.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Xizmatlar</h6>
+            </div>
+        </div>
+        <div class="subcategory-wrapper-top mx-5 mb-4 border d-none">
+            <div class="d-flex flex-wrap justify-content-between p-3">
+                <a href="#" class="city-link subcategory-link d-flex align-items-center"><i class="fas fa-chevron-right mr-2"></i> <p class="m-0">Men birinchi linkman</p></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="category" data-category-id="9" onclick="openSubCategories($(this), false)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #c8f8f6">
+                    <img src="{% static 'images/category-9.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Moda va stil</h6>
+            </div>
+            <div class="category" data-category-id="10" onclick="openSubCategories($(this), false)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #ceddff">
+                    <img src="{% static 'images/category-10.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Xobbi, dam olish sport</h6>
+            </div>
+            <div class="category" data-category-id="11" onclick="openSubCategories($(this), false)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #ffce32">
+                    <img src="{% static 'images/category-11.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Tekinga beraman</h6>
+            </div>
+            <div class="category" data-category-id="12" onclick="openSubCategories($(this), false)"> 
+                <span class="category-image-wrap mx-auto" style="background-color: #ffd6c9">
+                    <img src="{% static 'images/category-12.png' %}" alt="category-img" class="category-image">
+                </span>
+                <h6 class="category-title text-dark mt-3">Ayirboshlash</h6>
+            </div>
+        </div>
+        <div class="subcategory-wrapper-bottom mx-5 mb-4 border d-none">
+            <div class="d-flex flex-wrap justify-content-between p-3">
+                <a href="#" class="city-link subcategory-link d-flex align-items-center"><i class="fas fa-chevron-right mr-2"></i> <p class="m-0">Men birinchi linkman</p></a>
+            </div>
+        </div>
+        <div class="by-address d-flex justify-content-center mt-5">
+            {% for type in city %}
+                <a href="{% url 'address-list' type %}" class="city-link mx-2">{{ type }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<p class="d-none">{{ category }}</p>

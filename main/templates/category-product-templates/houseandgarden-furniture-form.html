@@ -1,0 +1,50 @@
+
+<div class="houseandgarden-furniture-model d-none">
+
+<div class="wrapper p-3 rounded shadow-lg my-5 bg-white">
+	<h3 class="mt-2 ml-5">Narx</h3>		
+	<div class="btn-group btn-group-toggle mx-5 mt-2" data-toggle="buttons">
+		{% for type in payment_method %}
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn">
+		    	<input class="form-check-input payment-method" type="radio" id="furniture-payment-method" onchange="changeMethod($(this))" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+	<div class="d-flex mx-5 mt-4 product-price-wrapper">		
+		<div class="mr-2">
+			<input type="number" id="furniture-price" class="form-control" autocomplete="off" min='0'>
+		</div>
+		<select class="form-control valute-select furniture-valute-select">
+			{% for type in valute %}
+				<option value="{{ type }}">{{ type }}</option>
+			{% endfor %}			
+		</select>
+	</div>
+</div>
+
+<div class="wrapper p-3 rounded shadow-lg my-5 bg-white">
+	<select class="mdb-select md-form mx-5" id="furniture-type" searchable="Qidiruv..">
+		<option value="!=!" disabled selected>Mebel turi</option>
+		{% for type in house_and_garden.furniture.type %}
+			<option value="{{ type }}">{{ type }}</option>
+		{% endfor %}	
+	</select>
+	<p class="d-block mt-5 ml-5 mb-1">Holati:</p>
+	<div class="btn-group btn-group-toggle mx-5 mb-4" data-toggle="buttons">
+		{% for type in electrical.mobile_phone.condition %}
+		    <label class="btn btn-mdb-color form-check-label ml-0 mr-4 radio-btn">
+		    	<input class="form-check-input" type="radio" id="furniture-condition" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+	<p class="d-block mt-5 ml-5 mb-1">Jismoniy/yuridik shaxs:</p>
+	<div class="btn-group btn-group-toggle mx-5 mb-4" data-toggle="buttons">
+		{% for type in seller %}
+		    <label class="btn btn-mdb-color form-check-label ml-0 mr-4 radio-btn">
+		    	<input class="form-check-input" type="radio" id="furniture-seller" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+</div>
+
+</div>

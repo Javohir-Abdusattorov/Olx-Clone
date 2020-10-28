@@ -1,0 +1,112 @@
+
+<div class="car-filter-form d-none">
+	<div class="filter-params-wrapper pt-4">
+
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Model</h6>
+			<select class="form-control" id="car-model">
+				<option value="null">Hammasi</option>
+				{% for model in transport.car.models %}
+					<option value="{{ model }}">{{ model }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param filter-param-lg">
+			<h6 class="text-b ml-2">Narx</h6>
+			<div class="d-flex">
+				<div class="col-4 px-1">					
+      				<input type="number" id="car-price-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-5 px-1">
+      				<input type="number" id="car-price-to" class="form-control" placeholder="..gacha">
+				</div>
+				<div class="col-3 px-1">
+					<select class="form-control px-1" id="car-valute">
+						{% for type in valute %}
+							<option value="{{ type }}">{{ type }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Dvigatel hajmi</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">					
+      				<input type="number" id="car-engine-size-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="car-engine-size-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Bosgan yo'li</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">					
+      				<input type="number" id="car-way-length-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="car-way-length-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Yoqilg'i turi</h6>
+			<select class="form-control" id="car-fuel-type">
+				<option value="null">Hammasi</option>
+				{% for type in transport.car.fuel_type %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param">
+			<h6 class="text-b ml-2">Ishlab chiqarilgan yili</h6>
+			<div class="d-flex">
+				<div class="col-6 px-1">					
+      				<input type="number" id="car-production-year-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-6 px-1">
+      				<input type="number" id="car-production-year-to" class="form-control" placeholder="..gacha">
+				</div>
+			</div>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Uzatmalar qutisi</h6>
+			<select class="form-control" id="car-transmission">
+				<option value="null">Hammasi</option>
+				{% for type in transport.car.transmission %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Mashina holati</h6>
+			<select class="form-control" id="car-condition">
+				<option value="null">Hammasi</option>
+				{% for type in transport.car.condition %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">To'lov turi</h6>
+			<select class="form-control" id="car-payment-method">
+				<option value="null">Hammasi</option>
+				{% for type in transport.car.payment_method %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Sotuvchi</h6>
+			<select class="form-control" id="car-seller">
+				<option value="null">Hammasi</option>
+				{% for type in seller %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+	</div>
+</div>

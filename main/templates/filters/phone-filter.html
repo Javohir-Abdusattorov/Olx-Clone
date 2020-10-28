@@ -1,0 +1,60 @@
+
+<div class="phone-filter-form d-none">
+
+	<div class="filter-params-wrapper pt-4">
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Model</h6>
+			<select class="form-control" id="phone-model">
+				<option value="null">Hammasi</option>
+				{% for model in electrical.mobile_phone.models %}
+					<option value="{{ model }}">{{ model }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param filter-param-lg">
+			<h6 class="text-b ml-2">Narx</h6>
+			<div class="d-flex">
+				<div class="col-4 px-1">					
+      				<input type="number" id="phone-price-from" class="form-control" placeholder="..dan">
+				</div>
+				<div class="col-5 px-1">
+      				<input type="number" id="phone-price-to" class="form-control" placeholder="..gacha">
+				</div>
+				<div class="col-3 px-1">
+					<select class="form-control px-1" id="phone-valute">
+						{% for type in valute %}
+							<option value="{{ type }}">{{ type }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Holati</h6>
+			<select class="form-control" id="phone-condition">
+				<option value="null">Hammasi</option>
+				{% for type in electrical.mobile_phone.condition %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">To'lov turi</h6>
+			<select class="form-control" id="phone-payment-method">
+				<option value="null">Hammasi</option>
+				{% for type in payment_method %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="filter-param px-2">			
+			<h6 class="text-b ml-2">Sotuvchi</h6>
+			<select class="form-control" id="phone-seller">
+				<option value="null">Hammasi</option>
+				{% for type in seller %}
+					<option value="{{ type }}">{{ type }}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+</div>

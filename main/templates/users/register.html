@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="form-dark">
+  	<div class="card card-image mx-auto my-5"
+	style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table7.jpg'); width: 26rem;">
+		<div class="text-white rgba-stylish-strong py-3 px-5 z-depth-4">
+
+			<form action="" method="POST">		
+				{% csrf_token %}
+			  	<div class="text-center">
+					<h3 class="white-text mb-5 mt-3"><strong>SIGN</strong> 
+					<a class="green-text font-weight-bold"><strong> UP</strong></a></h3>
+			  	</div>
+
+				<div class="md-form mt-3 pb-1">
+					<label class="white-text" for="username">Username</label>
+					{{ form.username }}
+				</div>
+
+				<div class="md-form mt-3 pb-1">
+					<label class="white-text" for="email">Your email</label>
+					{{ form.email }}
+				</div>
+
+				<div class="md-form pb-3">
+					<label class="white-text" for="password1">Your password</label>
+					{{ form.password1 }}
+				</div>
+
+				<div class="md-form pb-3">
+					<label class="white-text" for="password2">Re-enter your password</label>
+					{{ form.password2 }}
+				</div>
+
+				<div class="text-center mb-5 col-md-12 px-4">
+				  	<button class="btn btn-success btn-block btn-rounded z-depth-1" type="submit">Sign in</button>
+				</div>	
+			</form>
+
+			{% for field, errors in form.errors.items %}
+				{% for error in errors %}        
+					<p class="text-danger mb-0">{{ error }}</p>
+				{% endfor %}
+			{% endfor %}
+
+			<div class="col-md-12 mt-3">
+				<p class="font-small white-text d-flex justify-content-end">Accountingiz bormi? 
+				<a href="{% url 'login' %}"	class="green-text ml-1 font-weight-bold">Kirish</a></p>
+			</div>
+
+		</div>
+  	</div>
+</section>
+
+{% endblock %}

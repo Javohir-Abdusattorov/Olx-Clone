@@ -1,0 +1,91 @@
+
+<div class="transport-car-model d-none">
+
+<div class="wrapper p-3 rounded shadow-lg my-5 bg-white">
+	<h3 class="mt-2 ml-5">Narx</h3>		
+	<div class="btn-group btn-group-toggle mx-5 mt-2" data-toggle="buttons">
+		{% for type in transport.car.payment_method %}
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn">
+		    	<input class="form-check-input payment-method" type="radio" id="car-payment-method" onchange="changeMethod($(this))" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+	<div class="d-flex mx-5 mt-4 product-price-wrapper">
+		<div class="mr-2">
+			<input type="number" id="car-price" class="form-control" autocomplete="off" min='0'>
+		</div>
+		<select class="form-control valute-select car-valute-select">
+			{% for type in valute %}
+				<option value="{{ type }}">{{ type }}</option>
+			{% endfor %}			
+		</select>
+	</div>
+</div>
+
+<div class="wrapper p-3 rounded shadow-lg my-5 bg-white">
+	<select class="mdb-select md-form mx-5" id="car-model" searchable="Qidiruv..">
+		<option value="!=!" disabled selected>Model</option>
+		{% for model in transport.car.models %}
+			<option value="{{ model }}">{{ model }}</option>
+		{% endfor %}	
+	</select>
+	<div class="md-form mx-5 mb-4">
+		<input type="number" id="car-year-production" min="1800" max="2020" class="form-control">
+		<label for="car-year-production">Ishlab chiqarilgan yili</label>
+	</div>
+	<div class="md-form mx-5 mb-4">
+		<input type="number" id="car-way-length" class="form-control" min="0" autocomplete="off">
+		<label for="car-way-length">Bosib o'tgan yo'li (km) </label>
+	</div>
+	<p class="d-block mt-5 ml-5 mb-1">Uzatmalar qutisi:</p>
+	<div class="btn-group btn-group-toggle mx-5 mb-4" data-toggle="buttons">
+		{% for type in transport.car.transmission %}
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn">
+		    	<input class="form-check-input" type="radio" id="car-transmission" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+	<div class="md-form mx-5 mb-4">
+		<input type="number" min="0" id="car-engine-size" class="form-control">
+		<label for="car-engine-size">Dvigatel hajmi ( cm <sup>3</sup> )</label>
+	</div>
+	<p class="d-block mt-5 ml-5 mb-1">Yoqilg'i turi:</p>
+	<div class="btn-group btn-group-toggle mx-5 mb-4" data-toggle="buttons">
+		{% for type in transport.car.fuel_type %}
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn">
+		    	<input class="form-check-input" type="radio" id="car-fuel-type" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+	<p class="d-block mt-5 ml-5 mb-1">Mashina holati:</p>
+	<div class="btn-group btn-group-toggle mx-5 mb-4" data-toggle="buttons">
+		{% for type in transport.car.condition %}
+		    <label class="btn btn-mdb-color form-check-label mr-4 radio-btn">
+		    	<input class="form-check-input" type="radio" id="car-condition" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+	<div class="m-5 mr-0">
+		<h4 class="radio-btns-lead text-b">Qo'shimcha optsiyalar</h4>
+		<div class="radio-btns-wrapper car-other-options">
+			{% for type in transport.car.other_options %}
+				<div class="form-check">
+				    <input type="checkbox" class="form-check-input" value="{{ type }}" id="car-{{ type }}">
+				    <label class="form-check-label" for="car-{{ type }}">{{ type }}</label>
+				</div>
+			{% endfor %}
+		</div> 
+	</div>
+	<p class="d-block mt-5 ml-5 mb-1">Jismoniy/yuridik shaxs:</p>
+	<div class="btn-group btn-group-toggle mx-5 mb-4" data-toggle="buttons">
+		{% for type in seller %}
+		    <label class="btn btn-mdb-color form-check-label ml-0 mr-4 radio-btn">
+		    	<input class="form-check-input" type="radio" id="car-seller" value="{{ type }}" autocomplete="off">{{ type }}
+		    </label>		
+		{% endfor %}
+	</div>
+</div>	
+
+</div>
+
+
